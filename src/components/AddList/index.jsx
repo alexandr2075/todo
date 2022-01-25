@@ -3,7 +3,7 @@ import List from "../List";
 import Badge from "../Badge";
 
 import closeSvg from "../../assets/img/close.svg";
-import "./AddButtonList.scss";
+import "./AddList.scss";
 
 const AddList = ({ colors, onAdd }) => {
   const [visiblePopup, setVisiblePopup] = useState(true);

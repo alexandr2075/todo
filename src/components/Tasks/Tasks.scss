@@ -44,6 +44,7 @@
         }
 
         svg {
+            transition: opacity 1s ease-in-out;
             path {
                 stroke: #f2f2f2;
             }
@@ -83,6 +84,7 @@
             width: 20px;
             height: 20px;
             cursor: pointer;
+            transition: background-color 0.15s ease-un-out, border-color background-color 0.15s ease-un-out;
 
             svg {
                 opacity: 0;

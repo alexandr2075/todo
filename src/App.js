@@ -1,11 +1,13 @@
+import axios from "axios";
 import React, { useState } from "react";
-import AddList from "./components/AddButtonList";
-import List from "./components/List";
-import Tasks from "./components/Tasks";
 
-import DB from "./assets/db.json";
+import { List, AddList, Tasks } from "./components";
 
 function App() {
+  axios.get("http://localhost:3001/lists?_expand=color").then(({ data }) => {
+    console.log(data);
+  });
+
   const [lists, setLists] = useState(
     DB.lists.map((item) => {
       item.color = DB.colors.filter(

@@ -20,6 +20,7 @@
         align-items: center;
         padding: 10px 12px;
         cursor: pointer;
+        transition: background-color 0.15s ease-un-out;
 
         &:hover #{$self}__remove-icon {
             opacity: 0.2;
@@ -27,6 +28,7 @@
 
         #{$self}__remove-icon {
             opacity: 0;
+            transition: opacity 0.15s ease-un-out;
 
             &:hover {
                 opacity: 0.8;
