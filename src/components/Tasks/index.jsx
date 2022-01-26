@@ -14,7 +14,6 @@ const Tasks = () => {
       <div className="tasks__items">
         <div className="tasks__items-row">
           <div className="checkbox">
-            <p>ReactJS Hooks (useState, useReducer, useEffect и т.д.)</p>
             <input id="check" type="checkbox" />
             <label htmlFor="check">
               <svg
@@ -34,6 +33,7 @@ const Tasks = () => {
               </svg>
             </label>
           </div>
+          <input value="ReactJS Hooks (useState, useReducer, useEffect и т.д.)" />
         </div>
       </div>
     </div>
