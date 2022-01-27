@@ -13,7 +13,7 @@ const AddList = ({ colors, onAdd }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (Array.isArray) {
+    if (Array.isArray(colors)) {
       selectColor(colors[0].id);
     }
   }, [colors]);
@@ -40,6 +40,8 @@ const AddList = ({ colors, onAdd }) => {
         const listObj = { ...data, color: { name: color } };
         onAdd(listObj);
         onClose();
+      })
+      .finally(() => {
         setIsLoading(false);
       });
   };

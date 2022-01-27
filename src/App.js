@@ -8,9 +8,11 @@ function App() {
   const [colors, setColors] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/lists?_expand=color").then(({ data }) => {
-      setLists(data);
-    });
+    axios
+      .get("http://localhost:3001/lists?_expand=color&_embed=tasks")
+      .then(({ data }) => {
+        setLists(data);
+      });
     axios.get("http://localhost:3001/colors").then(({ data }) => {
       setColors(data);
     });
@@ -46,12 +48,21 @@ function App() {
             },
           ]}
         />
-        <List items={lists} isRemovable onRemove={(asd) => console.log(asd)} />
+        {lists ? (
+          <List
+            items={lists}
+            onRemove={(id) => {
+              const newList = lists.filter((item) => item.id !== id);
+              setLists(newList);
+            }}
+            isRemovable
+          />
+        ) : (
+          "Download..."
+        )}
         <AddList onAdd={onAddList} colors={colors} />
       </div>
-      <div className="todo__tasks">
-        <Tasks />
-      </div>
+      <div className="todo__tasks">{lists && <Tasks list={lists[1]} />}</div>
     </div>
   );
 }
